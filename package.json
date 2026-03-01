@@ -1,0 +1,26 @@
+{
+  "name": "calendar_service",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/index.js",
+    "lint": "echo 'lint not configured'",
+    "test": "echo 'tests not yet implemented'"
+  },
+  "dependencies": {
+    "fastify": "^4.26.2",
+    "ioredis": "^5.3.2",
+    "js-yaml": "^4.1.0",
+    "pg": "^8.11.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.24",
+    "@types/js-yaml": "^4.0.9",
+    "@types/pg": "^8.11.6",
+    "tsx": "^4.7.1",
+    "typescript": "^5.3.3"
+  }
+}
