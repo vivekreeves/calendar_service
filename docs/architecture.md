@@ -14,6 +14,28 @@
 - **Fan-out:** Async event publishing (e.g., via message bus like SNS/SQS, Kafka, or webhooks) to notify downstream systems.
 - **Infra:** Containerized service; can be deployed behind API gateway; supports horizontal scaling.
 
+## Architecture Diagram (Current Implementation)
+
+```mermaid
+flowchart LR
+  Client[Schedulers / API Clients]
+  API[Fastify REST API]
+  Config[projects.yaml]
+  MQ[Redis Queue]
+  DB[(PostgreSQL)]
+  Logs[(Project Logs)]
+  Metrics[(Per-Minute Metrics)]
+  QueueLog[(Queue Log)]
+
+  Client --> API
+  API --> Config
+  API --> DB
+  API --> MQ
+  API --> Logs
+  API --> Metrics
+  MQ --> QueueLog
+```
+
 ## Database Schema (PostgreSQL)
 Tables (representational):
 
